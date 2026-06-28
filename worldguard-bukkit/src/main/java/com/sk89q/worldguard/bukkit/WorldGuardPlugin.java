@@ -64,7 +64,6 @@ import com.sk89q.worldguard.bukkit.session.BukkitSessionManager;
 import com.sk89q.worldguard.bukkit.util.ClassSourceValidator;
 import com.sk89q.worldguard.bukkit.util.Entities;
 import com.sk89q.worldguard.bukkit.util.Events;
-import com.sk89q.worldguard.commands.GeneralCommands;
 import com.sk89q.worldguard.commands.ProtectionCommands;
 import com.sk89q.worldguard.commands.ToggleCommands;
 import com.sk89q.worldguard.protection.flags.Flag;
@@ -165,10 +164,6 @@ public class WorldGuardPlugin extends JavaPlugin {
         final CommandsManagerRegistration reg = new CommandsManagerRegistration(this, commands);
         reg.register(ToggleCommands.class);
         reg.register(ProtectionCommands.class);
-
-        if (!platform.getGlobalStateManager().hasCommandBookGodMode()) {
-            reg.register(GeneralCommands.class);
-        }
 
         if (this.isFolia()) {
             getServer().getGlobalRegionScheduler().runAtFixedRate(this, new Consumer() {
